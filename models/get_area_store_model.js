@@ -20,27 +20,27 @@ const getStoreInfo = (url, cityName, townName) => {
             }
         }, function (err, res, body) {
             const $ = cheerio.load(body);
-            // 店家ID
+            
             $('POIID').each(function (index, element) {
-　　　　　　     //去空白
+　　　　　　     //Eliminate Space
                 storeID.push($(this).text().replace(/\s/g, ''));
-                storeValues = index; // 該區所有店家的個數
+                storeValues = index; 
             })
-            // 店家名稱
+            
             $('POIName').each(function (index, element) {
                 storeName.push($(this).text());
             })
-            // 店家電話
+            
             $('Telno').each(function (index, element) {
-                //去空白
+                //Eliminate Space
                 storeTelephone.push($(this).text().replace(/\s/g, ''));
             })
-            // 店家傳真
+            
             $('FaxNo').each(function (index, element) {
-                //去空白
+                //Eliminate Space
                 storeFax.push($(this).text().replace(/\s/g, '')); 
             })
-            // 店家地址
+            
             $('Address').each(function (index, element) {
                 storeAddress.push($(this).text());
             })

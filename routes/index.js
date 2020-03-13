@@ -7,8 +7,8 @@ getData =new GetData ();
 
 router.get('/', getData.getStores);
 
-router.get('/areas', getData.getAreas);
+router.post('/areas', getData.getAreas);
 
-router.get('/oneareastores', getData.getAreaStores);
+router.post('/oneareastores', getData.getAreaStores);
 
 module.exports = router;

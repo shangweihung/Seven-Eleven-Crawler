@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action='/' method="get" name ='main'>  
+        <button style="float:right" type="submit">Home Page</button>
+    </form>
+    <h1><%= title %>'s stores</h1>
+    <div style="font-size: 18pt;">
+    <table border="1" width="100%">
+        <col style="width:15%">
+        <col style="width:15%">
+        <col style="width:20%">
+        <col style="width:50%">
+        </tbody>
+        <thead>
+        <tr>
+            <td>Store ID</td>
+            <td>Store Name </td>
+            <td>Store Telephone No.</td>
+            <td>Store Address </td>
+        </tr>
+        </thead>
+        <tbody>
+        <% for (var i=0; i<result.length; i++) { %>
+        <tr>
+            <td><%= result[i].storeID %> </td>
+            <td><%= result[i].storeName %> </td>
+            <td><%= result[i].storeTele %> </td>
+            <td><%= result[i].storeAddress %> </td>
+        </tr>
+        <% } %>
+        </tbody>
+        </table>
+    </div>
+    
+
+
+  </body>
+</html>

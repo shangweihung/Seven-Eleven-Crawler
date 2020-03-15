@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Welcome to 7-11 website</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <script type="text/javascript">
+      function OnSubmitForm()
+      {
+        if(document.myform.operation[0].checked == true)
+        {
+          document.myform.action ="/areas";
+        }
+        else
+        if(document.myform.operation[1].checked == true)
+        {
+          document.myform.action ="/stores";
+        }
+        return true;
+      }
+      </script>
+
+    <h1>Choose area you want to see</h1>
+    <div style="font-size: 28px;">
+    <form name="myform" onsubmit="return OnSubmitForm();" method="post" accept-charset="UTF-8">
+      <div class="form-group">
+        <input type="radio" name="operation" value="用城市查詢" checked>用城市查詢 <br>
+        <input type="radio" name="operation" value="用城市與行政區查詢">用城市與行政區查詢 <br>
+          城市名字：<input name='cityName' type='text'/><br>
+          區域名字：<input name='townName' type='text'/><br>
+          <br><br>
+          <button style="float:left" type="submit">submit</button>
+      </div>
+      </form>
   </body>
 </html>

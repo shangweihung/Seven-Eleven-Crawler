@@ -1,10 +1,19 @@
 const request = require('request');
 const cheerio = require('cheerio');
+const areaData = require('../data/storeID.json');
 
-const getTownName = (url, cityID) => {
+const getTownName = (url, cityName) => {
     let townName = [];
-
+    
     return new Promise((resolve, reject) => {
+        let cityID;
+
+        for(let i=0; i<areaData.result.length; i++){
+            if(areaData.result[i].area === cityName){
+                cityID = areaData.result[i].areaID
+            }
+        }
+
         request.post({
             url: url,
             form: {
@@ -21,5 +30,6 @@ const getTownName = (url, cityID) => {
         })
     })
 }
+
 
 module.exports = getTownName;

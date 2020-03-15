@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <form action='/' method="get" name ='main'>  
+        <button style="float:right" type="submit">Home Page</button>
+    </form>
+    <h1><%= title %>'s 行政區</h1>
+    <div style="font-size: 26px;">
+    <ul>
+        <% for (var i = 0; i< result.length; i++) { %>
+            <li>
+            <form action='/stores' method="post" name ='someform'>  
+                <a href="javascript:;" onclick="parentNode.submit();"><%=result[i] %></a>
+                <input type="hidden" name="cityName" value=<%=title %> >
+                <input type="hidden" name="townName" value=<%=result[i] %> >
+            </form>
+            </li>
+        <% } %>
+    </ul>
+    </div>
+  </body>
+</html>
